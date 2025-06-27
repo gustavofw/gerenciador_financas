@@ -17,3 +17,7 @@ $routes->post('/usuario/salvar', 'Usuario::salvar');
 $routes->get('/login', 'Login::index');
 $routes->post('/login/autenticar', 'Login::autenticar');
 $routes->get('/logout', 'Login::logout');
+$routes->get('/transacoes', 'Transacao::index');
+$routes->get('/transacoes/novo', 'Transacao::novo');
+$routes->post('/transacoes/salvar', 'Transacao::salvar');
+$routes->get('/transacoes/excluir/(:num)', 'Transacao::excluir/$1');

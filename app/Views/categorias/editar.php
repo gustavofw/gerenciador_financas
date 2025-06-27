@@ -2,10 +2,10 @@
 
 <h2>Editar Categoria</h2>
 
-<form action="/categorias/atualizar/<?= $categoria['id'] ?>" method="post">
+<form action="/categorias/atualizar/<?= $categoria['id_categoria'] ?>" method="post">
   <div class="mb-3">
     <label for="nome_categoria" class="form-label">Nome</label>
-    <input type="text" name="nome_categoria" value="<?= esc($categoria['nome']) ?>" class="form-control" required>
+    <input type="text" name="nome_categoria" value="<?= esc($categoria['nome_categoria']) ?>" class="form-control" required>
   </div>
 
   <div class="mb-3">

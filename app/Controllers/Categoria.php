@@ -27,7 +27,7 @@ class Categoria extends BaseController
         $data = [
             'nome_categoria' => $this->request->getPost('nome_categoria'),
             'tipo' => $this->request->getPost('tipo'),
-            'usuario_id' => 1 
+            'usuario_id' => session()->get('usuario_id')
         ];
 
         $model->insert($data);

@@ -16,8 +16,8 @@
       <td><?= esc($cat['nome_categoria']) ?></td>
       <td><?= esc($cat['tipo']) ?></td>
       <td>
-        <a href="/categorias/editar/<?= $cat['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
-        <a href="/categorias/excluir/<?= $cat['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+        <a href="/categorias/editar/<?= $cat['id_categoria'] ?>" class="btn btn-warning btn-sm">Editar</a>
+        <a href="/categorias/excluir/<?= $cat['id_categoria'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
       </td>
     </tr>
     <?php endforeach; ?>

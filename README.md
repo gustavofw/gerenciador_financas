@@ -1,68 +1,94 @@
-# CodeIgniter 4 Application Starter
+# Gerenciador de Finanças Pessoais
 
-## What is CodeIgniter?
+Sistema web para controle de receitas e despesas pessoais, desenvolvido com o framework CodeIgniter 4 e banco de dados PostgreSQL. A aplicação permite cadastrar usuários, categorias e transações, além de exibir um dashboard com saldo financeiro.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Funcionalidades
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- Cadastro e login de usuários
+- CRUD de categorias (receita ou despesa)
+- CRUD de transações financeiras
+- Dashboard com:
+  - Total de receitas
+  - Total de despesas
+  - Saldo atual
+- Validação de acesso por sessão
+- Layout reutilizável com cabeçalho e rodapé
+- Integração com banco de dados PostgreSQL
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+---
 
-## Installation & updates
+## Estrutura do Projeto (MVC)
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- Controllers: `Login`, `Home`, `Categoria`, `Transacao`
+- Models: `UsuarioModel`, `CategoriaModel`, `TransacaoModel`
+- Views organizadas por pasta:
+  - `Views/home`
+  - `Views/categorias`
+  - `Views/transacoes`
+  - `Views/layout` (header.php, footer.php)
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+## Requisitos e Dependências
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### Requisitos
 
-## Important Change with index.php
+- PHP 8.0 ou superior
+- Composer
+- PostgreSQL
+- Extensões PHP ativadas:
+  - intl
+  - pgsql
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+### Como habilitar extensões PHP (XAMPP)
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Abra o arquivo `php.ini` e remova o ponto e vírgula (`;`) das seguintes linhas:
 
-**Please** read the user guide for a better explanation of how CI4 works!
+extension=pgsql
+extension=intl
 
-## Repository Management
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+Depois, reinicie o Apache no painel do XAMPP.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Server Requirements
+## Instalação do Projeto
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+### Passos
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+```bash
+# 1. Clonar o projeto
+git clone https://github.com/seu-usuario/seu-repo.git
+cd gerenciador-financas
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+# 2. Instalar dependências com o Composer
+composer install
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+# 3. Copiar e configurar o arquivo .env
+cp env .env
+# Edite o .env com os dados corretos de conexão com o banco PostgreSQL
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+# 4. Gerar a chave do projeto
+php spark key:generate
+
+# 5. Iniciar o servidor de desenvolvimento
+php spark serve
+
+Acesse o sistema em:
+
+http://localhost:8080
+Configuração de Banco de Dados
+A configuração da conexão com o banco de dados PostgreSQL é feita no arquivo .env na raiz do projeto:
+
+database.default.hostname = localhost
+database.default.database = gerenciador
+database.default.username = postgres
+database.default.password = sua_senha
+database.default.DBDriver = Postgre
+database.default.port = 5432
+database.default.charset = utf8
+
+Autor
+Desenvolvido por Gustavo Wildner e Luiz Augusto Lise – Projeto acadêmico com foco em arquitetura MVC, integração com banco de dados PostgreSQL e uso de ORM com CodeIgniter 4.
