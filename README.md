@@ -60,7 +60,7 @@ Depois, reinicie o Apache no painel do XAMPP.
 
 ```bash
 # 1. Clonar o projeto
-git clone https://github.com/seu-usuario/seu-repo.git
+git clone 'https://github.com/gustavofw/gerenciador_financas'
 cd gerenciador-financas
 
 # 2. Instalar dependências com o Composer
