@@ -24,8 +24,6 @@
   </tbody>
 </table>
 
-<h2>Lista de Categorias</h2>
-
 <?php if(session()->getFlashdata('msg')): ?>
   <div class="alert alert-success">
     <?= session()->getFlashdata('msg') ?>

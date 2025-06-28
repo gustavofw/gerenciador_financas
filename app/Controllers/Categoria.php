@@ -6,11 +6,20 @@ use App\Models\CategoriaModel;
 
 class Categoria extends BaseController
 {
+    protected $categoriaModel;
+
+    public function __construct()
+    {
+        $this->categoriaModel = new CategoriaModel();
+    }
+
     public function index()
     {
-        $model = new CategoriaModel();
-        $data['categorias'] = $model->findAll();
-        $data['title'] = 'Categorias';
+        $usuarioId = session()->get('usuario_id'); 
+        $data['categorias'] = $this->categoriaModel
+            ->where('usuario_id', $usuarioId)
+            ->findAll();
+
         return view('categorias/index', $data);
     }
 
